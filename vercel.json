@@ -12,16 +12,20 @@
       "dest": "/templates/home.html"
     },
     {
-      "src": "/(.*)",
-      "dest": "/templates/$1"
-    },
-    {
       "src": "/css/(.*)",
       "dest": "/css/$1"
     },
     {
       "src": "/js/(.*)",
       "dest": "/js/$1"
+    },
+    {
+      "src": "/templates/images/(.*)",
+      "dest": "/templates/images/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/templates/$1"
     }
   ]
 } 
