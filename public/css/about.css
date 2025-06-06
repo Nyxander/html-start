@@ -98,7 +98,7 @@ main {
       rgba(224, 206, 206, 0.3),
       rgba(240, 236, 236, 0.4)
     ),
-    url("../templates/images/2.png") center/cover no-repeat;
+    url("/templates/images/2.png") center/cover no-repeat;
   min-height: 520px;
   display: flex;
   align-items: center;

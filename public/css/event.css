@@ -4,7 +4,7 @@
 
 .hero-bg {
     background: linear-gradient(rgba(30,30,30,0.6), rgba(30,30,30,0.6)), 
-    url('../templates/images/4.PNG') 
+    url('/templates/images/4.PNG') 
     center/cover no-repeat;
     height: 85vh;
     display: flex;

@@ -58,7 +58,7 @@ h1 { text-align: center; }
 
 .hero-bg {
     background: linear-gradient(rgba(30,30,30,0.6), rgba(30,30,30,0.6)), 
-    url('../templates/images/bg-3.PNG') 
+    url('/templates/images/bg-3.png') 
     center/cover no-repeat;
     min-height: 80vh; /* Keep for larger screens */
     display: flex;
