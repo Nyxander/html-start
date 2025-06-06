@@ -13,14 +13,14 @@
     },
     {
       "src": "/css/(.*)",
-      "dest": "/css/$1"
+      "dest": "/public/css/$1"
     },
     {
       "src": "/js/(.*)",
-      "dest": "/js/$1"
+      "dest": "/public/js/$1"
     },
     {
-      "src": "/templates/images/(.*)",
+      "src": "/images/(.*)",
       "dest": "/templates/images/$1"
     },
     {
