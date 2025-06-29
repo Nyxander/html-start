@@ -1,6 +1,7 @@
 @import url(color.s.css);
 @import url(font.s.css);
 
+
 .hero-bg {
     background: linear-gradient(rgba(30,30,30,0.6), rgba(30,30,30,0.6)), 
     url('../templates/images/bg-2.png') 
