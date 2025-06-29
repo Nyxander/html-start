@@ -446,20 +446,18 @@ function displayResults(books) {
         return;
     }
     
-    let html = '<div class="row">';
+    let html = '<div class="search-results">';
     books.forEach(book => {
         html += `
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <a href="./product-detail.html?id=${book.id}" class="text-decoration-none">
-                        <img src="${book.image}" class="card-img-top" alt="${book.title}" style="height: 300px; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title">${book.title}</h5>
-                            <p class="card-text">${book.author}</p>
-                            <p class="card-text">${book.description.substring(0, 100)}...</p>
-                        </div>
-                    </a>
-                </div>
+            <div class="book-card">
+                <a href="./product-detail.html?id=${book.id}">
+                    <img src="${book.image}" class="book-image" alt="${book.title}">
+                    <div class="book-info">
+                        <h3 class="book-title">${book.title}</h3>
+                        <p class="book-author">${book.author}</p>
+                        <span class="book-category">${getCategoryName(book.category)}</span>
+                    </div>
+                </a>
             </div>
         `;
     });
@@ -476,114 +474,4 @@ function getCategoryName(category) {
         'science': 'Filozofi & Shkencë'
     };
     return categories[category] || category;
-} 
-/*
-function addToCart(bookId) {
-    const book = sampleBooks.find(b => b.id === bookId);
-    
-    if (book) {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        
-        cart.push({
-            id: book.id,
-            title: book.title,
-            author: book.author,
-            image: book.image,
-            price: parseFloat(book.price.replace(' ALL', '').replace(',', '')),
-            quantity: 1
-        });
-        
-        // Save updated cart
-        localStorage.setItem('cart', JSON.stringify(cart));
-        
-        // Show success message
-        let toastContainer = document.querySelector('.toast-container');
-        if (!toastContainer) {
-            toastContainer = document.createElement('div');
-            toastContainer.className = 'toast-container position-fixed bottom-0 end-0 p-3';
-            toastContainer.style.zIndex = '11';
-            document.body.appendChild(toastContainer);
-        }
-
-        const toastEl = document.createElement('div');
-        toastEl.className = 'toast';
-        toastEl.setAttribute('role', 'alert');
-        toastEl.setAttribute('aria-live', 'assertive');
-        toastEl.setAttribute('aria-atomic', 'true');
-        
-        toastEl.innerHTML = `
-            <div class="toast-header bg-success text-white">
-                <strong class="me-auto">Sukses!</strong>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-                Libri u shtua në shportë!
-            </div>
-        `;
-
-        toastContainer.appendChild(toastEl);
-        const toast = new bootstrap.Toast(toastEl, {
-            autohide: true,
-            delay: 3000
-        });
-        toast.show();
-
-        toastEl.addEventListener('hidden.bs.toast', () => {
-            toastEl.remove();
-        });
-    }
-} 
-*/
-function addToCart(bookId) {
-    const book = sampleBooks.find(b => b.id === bookId);
-    
-    if (book) {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        
-        cart.push({
-            id: book.id,
-            title: book.title,
-            author: book.author,
-            image: book.image,
-            price: parseFloat(book.price.replace(' ALL', '').replace(',', '')),
-            quantity: 1
-        });
-        
-        localStorage.setItem('cart', JSON.stringify(cart));
-        
-        let toastContainer = document.querySelector('.toast-container');
-        if (!toastContainer) {
-            toastContainer = document.createElement('div');
-            toastContainer.className = 'toast-container position-fixed bottom-0 end-0 p-3';
-            toastContainer.style.zIndex = '11';
-            document.body.appendChild(toastContainer);
-        }
-
-        const toastEl = document.createElement('div');
-        toastEl.className = 'toast';
-        toastEl.setAttribute('role', 'alert');
-        toastEl.setAttribute('aria-live', 'assertive');
-        toastEl.setAttribute('aria-atomic', 'true');
-        
-        toastEl.innerHTML = `
-            <div class="toast-header bg-success text-white">
-                <strong class="me-auto">Sukses!</strong>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-                Libri u shtua në shportë!
-            </div>
-        `;
-
-        toastContainer.appendChild(toastEl);
-        const toast = new bootstrap.Toast(toastEl, {
-            autohide: true,
-            delay: 3000
-        });
-        toast.show();
-
-        toastEl.addEventListener('hidden.bs.toast', () => {
-            toastEl.remove();
-        });
-    }
 }

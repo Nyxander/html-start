@@ -40,10 +40,9 @@ const bookTitles = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.querySelector('.search-input');
+    const searchInput = document.getElementById('search-input');
     const searchBar = document.querySelector('.search-bar');
 
-    // Only initialize if both search input and search bar exist
     if (!searchInput || !searchBar) {
         console.log('Search elements not found, skipping search suggestions initialization');
         return;
@@ -86,10 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function selectSuggestion(suggestion) {
-    const searchInput = document.querySelector('.search-input');
+    const searchInput = document.getElementById('search-input');
     searchInput.value = suggestion;
     document.querySelector('.search-suggestions').style.display = 'none';
-
-    // Submit the form
     searchInput.closest('form').submit();
 } 

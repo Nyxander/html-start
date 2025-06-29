@@ -81,15 +81,35 @@ function loadEventDetails() {
     }
 
     if(event.status){
-
         document.title = `${event.emri} - Library`;
         document.getElementById('eventType').value = event.emri;
 
-           } else{
+        // Add form submission handler
+        const form = document.getElementById('eventRegistrationForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Here you would typically send the data to a server
+                console.log('Registration data:', data);
+                
+                // Show success modal
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+                
+                // Reset form
+                form.reset();
+            });
+        }
+    } else{
         document.querySelector('.event-detail-content').innerHTML = `
         
         <div class="container text-center py-5">
-                <h1 style="color: #333; margin-bottom: 1.5rem; font-family: 'Fredericka the Great', cursive;">${event.emri}</h1>
+                <h1 style="color: #333; margin-bottom: 1.5rem; font-family:  var(--quote);">${event.emri}</h1>
                 <br>
                 ${
                     event.imgs
